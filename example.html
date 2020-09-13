@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <script src="./index.js"></script>
+    <script>
+      // Invalid
+      console.log(dom());
+      console.log(dom(""));
+
+      // Selector
+      console.log(dom("body"));
+
+      // HTML String (will generate the element(s))
+      console.log(dom("body").append(dom("<p>Hello</p><p>World</p>")));
+
+      //Passing DOM Node reference
+      console.log(dom(document.body));
+
+      // Passing DOM Node array
+      console.log(dom([document.body, document.body]));
+
+      // Passing HTMLCollection
+      console.log(dom(document.body.children));
+
+      //html() method
+      //SETTTER
+      console.log(dom("ul li:first-child").html("One"));
+      //GETTER
+      console.log(dom("ul li:first-child").html() === "One");
+
+      //text() method
+      //SETTER
+      console.log(dom("ul li:last-child").text("Three"));
+      //GETTER
+      console.log(dom("ul li:last-child").html() === "Three");
+
+      //append() method
+      //SETTER
+      dom("ul").append("<li>4</li>");
+      dom("ul").append(document.createElement("li"));
+
+      dom("ul").append(dom("li:first-child"));
+    </script>
+  </body>
+</html>
